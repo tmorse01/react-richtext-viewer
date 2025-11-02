@@ -1,0 +1,29 @@
+{
+  "name": "react-richtext-viewer",
+  "version": "0.0.1",
+  "description": "Tiny, safe React component to render trusted HTML (sanitized).",
+  "keywords": [
+    "react",
+    "richtext",
+    "viewer",
+    "html",
+    "sanitize",
+    "dompurify"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  }
+}
