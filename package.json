@@ -1,6 +1,6 @@
 {
   "name": "react-richtext-viewer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tiny, safe React component to render trusted HTML (sanitized).",
   "keywords": [
     "react",
