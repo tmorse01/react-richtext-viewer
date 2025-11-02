@@ -20,10 +20,10 @@ npm install react-richtext-viewer dompurify
 ## 🚀 Quick Start
 
 ```tsx
-import { RichTextViewer } from "react-richtext-viewer";
+import { RichTextViewer } from 'react-richtext-viewer';
 
 export function App() {
-  const html = "<p>Hello <strong>world</strong></p>";
+  const html = '<p>Hello <strong>world</strong></p>';
   return <RichTextViewer html={html} />;
 }
 ```
@@ -228,6 +228,6 @@ Use the `className` prop and ensure your CSS is loaded:
 
 ---
 
-**Version:** 0.0.1  
+**Version:** 0.0.2  
 **Author:** Taylor Morse
 **Repository:** [github.com/tmorse01/react-richtext-viewer](https://github.com/tmorse01/react-richtext-viewer)
