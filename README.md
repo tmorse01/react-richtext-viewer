@@ -36,6 +36,19 @@ export function App() {
 interface RichTextViewerProps {
   html?: string;
   className?: string;
+  style?: React.CSSProperties;
+  // Typography
+  fontSize?: string | number;
+  lineHeight?: string | number;
+  fontFamily?: string;
+  color?: string;
+  // Container styling
+  border?: string;
+  borderRadius?: string | number;
+  padding?: string | number;
+  maxHeight?: string | number;
+  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
+  backgroundColor?: string;
 }
 ```
 
@@ -43,11 +56,60 @@ interface RichTextViewerProps {
 
 - `html` (string, optional): HTML content to render (will be sanitized)
 - `className` (string, optional): CSS class to apply to the wrapper `<div>`
+- `style` (React.CSSProperties, optional): Additional inline styles to apply
 
-**Example:**
+**Typography Props:**
+
+- `fontSize` (string | number, optional): Font size (default: `'16px'`)
+- `lineHeight` (string | number, optional): Line height (default: `'1.6'`)
+- `fontFamily` (string, optional): Font family (default: system fonts)
+- `color` (string, optional): Text color (default: `'#333'`)
+
+**Container Props:**
+
+- `border` (string, optional): Border style (default: `'1px solid #e5e7eb'`)
+- `borderRadius` (string | number, optional): Border radius (default: `'8px'`)
+- `padding` (string | number, optional): Padding (default: `'16px'`)
+- `maxHeight` (string | number, optional): Maximum height (no default)
+- `overflow` ('visible' | 'hidden' | 'scroll' | 'auto', optional): Overflow behavior (no default)
+- `backgroundColor` (string, optional): Background color (default: `'#ffffff'`)
+
+**Examples:**
 
 ```tsx
-<RichTextViewer html="<h1>Title</h1><p>Content</p>" className="content-area" />
+// Basic usage with default modern styling
+<RichTextViewer html="<h1>Title</h1><p>Content</p>" />
+
+// Custom typography
+<RichTextViewer 
+  html="<p>Large text</p>" 
+  fontSize="18px"
+  lineHeight="1.8"
+  fontFamily="Georgia, serif"
+/>
+
+// Custom container styling
+<RichTextViewer 
+  html="<p>Content</p>" 
+  border="2px solid #10b981"
+  backgroundColor="#f0fdf4"
+  borderRadius="12px"
+/>
+
+// Scrollable content
+<RichTextViewer 
+  html="<p>Long content...</p>" 
+  maxHeight="200px"
+  overflow="auto"
+/>
+
+// Disable default styling
+<RichTextViewer 
+  html="<p>Content</p>" 
+  border="none"
+  padding="0"
+  backgroundColor="transparent"
+/>
 ```
 
 ## 🔒 Security

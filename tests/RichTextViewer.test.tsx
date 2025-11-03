@@ -80,4 +80,87 @@ describe('RichTextViewer', () => {
       expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Article Title');
     });
   });
+
+  it('applies default styles', async () => {
+    const { container } = render(<RichTextViewer html="<p>Test</p>" />);
+    await waitFor(() => {
+      const div = container.firstChild as HTMLElement;
+      expect(div).toHaveStyle({
+        fontSize: '16px',
+        lineHeight: '1.6',
+        border: '1px solid #e5e7eb',
+        borderRadius: '8px',
+        padding: '16px',
+        backgroundColor: '#ffffff',
+      });
+    });
+  });
+
+  it('applies custom typography props', async () => {
+    const { container } = render(
+      <RichTextViewer
+        html="<p>Test</p>"
+        fontSize="18px"
+        lineHeight="1.8"
+        fontFamily="Georgia, serif"
+        color="#1e40af"
+      />
+    );
+    await waitFor(() => {
+      const div = container.firstChild as HTMLElement;
+      expect(div).toHaveStyle({
+        fontSize: '18px',
+        lineHeight: '1.8',
+        fontFamily: 'Georgia, serif',
+        color: '#1e40af',
+      });
+    });
+  });
+
+  it('applies custom container props', async () => {
+    const { container } = render(
+      <RichTextViewer
+        html="<p>Test</p>"
+        border="2px solid #10b981"
+        borderRadius="12px"
+        padding="24px"
+        backgroundColor="#f0fdf4"
+      />
+    );
+    await waitFor(() => {
+      const div = container.firstChild as HTMLElement;
+      expect(div).toHaveStyle({
+        border: '2px solid #10b981',
+        borderRadius: '12px',
+        padding: '24px',
+        backgroundColor: '#f0fdf4',
+      });
+    });
+  });
+
+  it('applies overflow and maxHeight props', async () => {
+    const { container } = render(
+      <RichTextViewer html="<p>Test</p>" maxHeight="200px" overflow="auto" />
+    );
+    await waitFor(() => {
+      const div = container.firstChild as HTMLElement;
+      expect(div).toHaveStyle({
+        maxHeight: '200px',
+        overflow: 'auto',
+      });
+    });
+  });
+
+  it('merges style prop with other styles', async () => {
+    const { container } = render(
+      <RichTextViewer html="<p>Test</p>" fontSize="20px" style={{ fontWeight: 'bold' }} />
+    );
+    await waitFor(() => {
+      const div = container.firstChild as HTMLElement;
+      expect(div).toHaveStyle({
+        fontSize: '20px',
+        fontWeight: 'bold',
+      });
+    });
+  });
 });
