@@ -32,6 +32,64 @@ export const SafeHtml: Story = () => (
   <RichTextViewer html="<h2>Article Title</h2><p>This is a <strong>safe</strong> paragraph with a <a href='#'>link</a>.</p>" />
 );
 
+export const CustomTypography: Story = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div>
+      <h3>Large Text</h3>
+      <RichTextViewer
+        html="<p>This content has <strong>larger font size</strong> for better readability.</p>"
+        fontSize="18px"
+        lineHeight="1.8"
+      />
+    </div>
+    <div>
+      <h3>Custom Font Family</h3>
+      <RichTextViewer
+        html="<p>This content uses <em>Georgia</em> font for a more classic look.</p>"
+        fontFamily="Georgia, serif"
+      />
+    </div>
+    <div>
+      <h3>Custom Color</h3>
+      <RichTextViewer
+        html="<p>This content has a <strong>custom text color</strong>.</p>"
+        color="#1e40af"
+      />
+    </div>
+  </div>
+);
+
+export const ContainerStyling: Story = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div>
+      <h3>Custom Border & Background</h3>
+      <RichTextViewer
+        html="<p>This has a <strong>custom border</strong> and background color.</p>"
+        border="2px solid #10b981"
+        backgroundColor="#f0fdf4"
+        borderRadius="12px"
+      />
+    </div>
+    <div>
+      <h3>Maximum Height with Scrolling</h3>
+      <RichTextViewer
+        html="<p>This is a long content that will scroll...</p><p>Paragraph 2</p><p>Paragraph 3</p><p>Paragraph 4</p><p>Paragraph 5</p>"
+        maxHeight="150px"
+        overflow="auto"
+      />
+    </div>
+    <div>
+      <h3>No Border, Custom Padding</h3>
+      <RichTextViewer
+        html="<p>This has <strong>no border</strong> but extra padding.</p>"
+        border="none"
+        padding="24px"
+        backgroundColor="#f8fafc"
+      />
+    </div>
+  </div>
+);
+
 export const WithClassName: Story = () => (
   <div>
     <style>{`
@@ -75,7 +133,7 @@ export const Empty: Story = () => (
   <div>
     <p>Component with no HTML prop:</p>
     <RichTextViewer />
-    <p style={{ fontSize: 12, color: '#666' }}>↑ Renders empty div</p>
+    <p style={{ fontSize: 12, color: '#666' }}>↑ Renders empty div with default styles</p>
   </div>
 );
 
